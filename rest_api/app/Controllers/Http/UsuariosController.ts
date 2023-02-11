@@ -23,10 +23,10 @@ export default class UsuariosController {
         return user;
     }
 
-    public async setRegistrarUsuarios({request, response}: HttpContextContract) {
-        const dataUsuario = request.only(['codigo_usuario', 'nombre_usuario', 'contraseña', 'email', 'telefono', 'perfil'])
+    public async setRegistrarUsuario({request, response}: HttpContextContract) {
+        const dataUsuario = request.only(['codigo_usuario', 'nombre_usuario', 'contrasena', 'email', 'telefono']);
         try {
-            const codigoUsuario = dataUsuario.codigo_usuario
+            const codigoUsuario: Number = dataUsuario.codigo_usuario;
             const usuarioExistente: Number = await this.getValidarUsuarioExistente(codigoUsuario)
             if (usuarioExistente === 0) {
                 await Usuario.create(dataUsuario)

@@ -20,6 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+Route.get('/', async () => {
+  return {hello: "world"}
+})
+
 Route.group(() => {
 
   Route.get('/listar-usuarios', 'UsuariosController.getListarUsuarios')
@@ -28,10 +32,10 @@ Route.group(() => {
   Route.get('/listar-publicaciones', 'UsuariosController.getListarUsuariosYPublicacion')
   Route.get('/listar-usuarios-grupo', 'UsuariosController.getListarUsuariosGrupos')
 
-  Route.post('/registro-usuarios', 'UsuariosController.getRegistrarUsuario')
-  Route.post('/registro-perfil', 'PerfilsController.getRegistrarPerfil')
-  Route.post('/registro-pubicacion', 'PublicacionesController.getRegistrarPublicacion')
-  Route.post('/registro-grupo', 'GruposController.getRegistrarGrupo')
-  Route.post('/registro-usuario-grupo', 'GRupoUsuariosController.getRegistrarUsuarioGrupo')
+  Route.post('/registro-usuarios', 'UsuariosController.setRegistrarUsuario')
+  Route.post('/registro-perfil', 'PerfilsController.setRegistrarPerfil')
+  Route.post('/registro-publicacion', 'PublicacionesController.setRegistrarPublicacion')
+  Route.post('/registro-grupo', 'GruposController.setRegistrarGrupo')
+  Route.post('/registro-usuario-grupo', 'GrupoUsuariosController.setRegistrarUsuarioGrupo')
   
-})
+}).prefix('/api')
