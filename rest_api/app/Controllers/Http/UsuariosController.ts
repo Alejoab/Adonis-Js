@@ -13,7 +13,7 @@ export default class UsuariosController {
         return user;
     }
 
-    public async getListarUsuariosYPublicaion(): Promise<Usuario[]> {
+    public async getListarUsuariosYPublicacion(): Promise<Usuario[]> {
         const user = await Usuario.query().preload('publicaciones')
         return user;
     }

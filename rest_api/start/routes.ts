@@ -27,7 +27,6 @@ Route.get('/', async () => {
 Route.group(() => {
 
   Route.get('/listar-usuarios', 'UsuariosController.getListarUsuarios')
-  Route.get('/listar-todo', 'UsuariosController.getListarUsuariosTodos')
   Route.get('/listar-perfil', 'UsuariosController.getListarUsuariosYPerfil')
   Route.get('/listar-publicaciones', 'UsuariosController.getListarUsuariosYPublicacion')
   Route.get('/listar-usuarios-grupo', 'UsuariosController.getListarUsuariosGrupos')
