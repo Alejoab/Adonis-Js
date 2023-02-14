@@ -35,12 +35,19 @@ export default class UsuariosController {
                 response.status(400).json({'msg': 'Error, el codigo de usuario ya se encuentra registrado'})
             }
         } catch (error) {
+            console.log(error)
             response.status(500).json({'msg': 'Error en el servidor'})
         }
     }
 
+    public async delUsuario({request, response}: HttpContextContract){
+        const dataUsuario = request.only(['codigo_usuario']);
+        await Usuario.query().where({'codigo_usuario': dataUsuario.codigo_usuario}).delete();
+        response.status(200).json({'msg': 'Usuario eliminado correctamente'});
+    }
+
     private async getValidarUsuarioExistente(codigo_usuario: Number): Promise<Number> {
-        const total = await Usuario.query().where({'codigo_usuario': codigo_usuario}).count('*').from('usuarios')
+        const total = await Usuario.query().where({'codigo_usuario': codigo_usuario}).count('*').from('usuarios');
         return parseInt(total[0]['count(*)'])
     }
 }

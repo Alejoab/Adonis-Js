@@ -36,5 +36,7 @@ Route.group(() => {
   Route.post('/registro-publicacion', 'PublicacionesController.setRegistrarPublicacion')
   Route.post('/registro-grupo', 'GruposController.setRegistrarGrupo')
   Route.post('/registro-usuario-grupo', 'GrupoUsuariosController.setRegistrarUsuarioGrupo')
+
+  Route.delete('/eliminar-usuario', 'UsuariosController.delUsuario')
   
 }).prefix('/api')
